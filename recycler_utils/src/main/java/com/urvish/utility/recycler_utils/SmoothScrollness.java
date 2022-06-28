@@ -22,7 +22,7 @@ public class SmoothScrollness extends SnapHelper {
     private RecyclerView mRecyclerView;
 
     // Total number of items in a block of view in the RecyclerView
-    private int mBlocksize;
+    private int mBlockSize;
 
     // Maximum number of positions to move on a fling.
     private int mMaxPositionsToMove;
@@ -164,10 +164,10 @@ public class SmoothScrollness extends SnapHelper {
             // Scrolling toward bottom of data
             int firstCompletePosition = layoutManager.findFirstCompletelyVisibleItemPosition();
             if (firstCompletePosition != RecyclerView.NO_POSITION
-                    && firstCompletePosition % mBlocksize == 0) {
+                    && firstCompletePosition % mBlockSize == 0) {
                 snapPos = firstCompletePosition;
             } else {
-                snapPos = roundDownToBlockSize(firstVisiblePos + mBlocksize);
+                snapPos = roundDownToBlockSize(firstVisiblePos + mBlockSize);
             }
         } else {
             // Scrolling toward top of data
@@ -198,12 +198,12 @@ public class SmoothScrollness extends SnapHelper {
 
         if (layoutManager.canScrollHorizontally()) {
             mItemDimension = child.getWidth();
-            mBlocksize = getSpanCount(layoutManager) * (mRecyclerView.getWidth() / mItemDimension);
+            mBlockSize = getSpanCount(layoutManager) * (mRecyclerView.getWidth() / mItemDimension);
         } else if (layoutManager.canScrollVertically()) {
             mItemDimension = child.getHeight();
-            mBlocksize = getSpanCount(layoutManager) * (mRecyclerView.getHeight() / mItemDimension);
+            mBlockSize = getSpanCount(layoutManager) * (mRecyclerView.getHeight() / mItemDimension);
         }
-        mMaxPositionsToMove = mBlocksize * mMaxFlingBlocks;
+        mMaxPositionsToMove = mBlockSize * mMaxFlingBlocks;
     }
 
     private int getSpanCount(RecyclerView.LayoutManager layoutManager) {
@@ -213,11 +213,11 @@ public class SmoothScrollness extends SnapHelper {
     }
 
     private int roundDownToBlockSize(int trialPosition) {
-        return trialPosition - trialPosition % mBlocksize;
+        return trialPosition - trialPosition % mBlockSize;
     }
 
     private int roundUpToBlockSize(int trialPosition) {
-        return roundDownToBlockSize(trialPosition + mBlocksize - 1);
+        return roundDownToBlockSize(trialPosition + mBlockSize - 1);
     }
 
     protected LinearSmoothScroller createScroller(RecyclerView.LayoutManager layoutManager) {
@@ -317,9 +317,9 @@ public class SmoothScrollness extends SnapHelper {
 
             positionsToMove = roundUpToBlockSize(Math.abs(scroll) / itemSize);
 
-            if (positionsToMove < mBlocksize) {
+            if (positionsToMove < mBlockSize) {
                 // Must move at least one block
-                positionsToMove = mBlocksize;
+                positionsToMove = mBlockSize;
             } else if (positionsToMove > mMaxPositionsToMove) {
                 // Clamp number of positions to move so we don't get wild flinging.
                 positionsToMove = mMaxPositionsToMove;
