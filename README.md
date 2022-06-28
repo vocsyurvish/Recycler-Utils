@@ -1,5 +1,4 @@
-# RecyclerView Utility
-
+# RecyclerView Utility  [![Release](https://jitpack.io/v/vocsyurvish/Recycler-Utils.svg)](https://jitpack.io/#vocsyurvish/Recycler-Utils) [![API](https://img.shields.io/badge/API-21%2B-yellow.svg?style=flat)](https://android-arsenal.com/api?level=21)
 ### import library in your project...
 
 ```text
