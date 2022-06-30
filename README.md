@@ -14,11 +14,16 @@ allprojects {
 implementation 'com.github.vocsyurvish:Recycler-Utils:1.0.0'
 ```
 
-# Features and classes to use.
+### ● SmoothScrollness
+###### **SmoothScrollness** use for smooth scroll on recyclerview.
 
-## ● SnapHelperOneByOne
-- **SnapHelperOneByOne** use for scroll each items one by one.
-- How to use.
+```java
+SnapHelper snapHelper = new SmoothScrollness(HOW_MUCH_SMOOTH /*int*/);
+snapHelper.attachToRecyclerView(YOUR_RECYCLER_VIEW);
+```
+
+### ● SnapHelperOneByOne
+###### **SnapHelperOneByOne** use for scroll each items one by one.
 
 ```java
 //create object of SnapHelper
@@ -27,9 +32,8 @@ SnapHelper snapHelper = new SnapHelperOneByOne()
 snapHelper.attachToRecyclerView(YOUR_RECYCLER_VIEW);
 ```
 
-## ● CenterZoomLayoutManager
-- **CenterZoomLayoutManager** use for zoom center item of recyclerview.
-- How To Use
+### ● CenterZoomLayoutManager
+###### **CenterZoomLayoutManager** use for zoom center item of recyclerview.
 
 ```java
 //create object
@@ -40,9 +44,8 @@ YOUR_RECYCLER_VIEW.setLayoutManager(manager);
 YOUR_RECYCLER_VIEW.smoothScrollBy(1, 1);
 ```
 
-## ●  EndlessRecyclerViewScrollListener
-- **EndlessRecyclerViewScrollListener** use for pagination
-- How to use
+### ●  EndlessRecyclerViewScrollListener
+###### **EndlessRecyclerViewScrollListener** use for pagination
 
 ```java
  YOUR_RECYCLER_VIEW.addOnScrollListener(new EndlessRecyclerViewScrollListener(YOUR_LAYOUT_MANAGER) {
@@ -51,4 +54,27 @@ YOUR_RECYCLER_VIEW.smoothScrollBy(1, 1);
              	//write your logic here...
             }
         });
+```
+
+### ●  OverNestedScrollView
+###### **OverNestedScrollView** use for Over scroll effect in recyclerView
+###### xml Side
+
+```xml
+<com.urvish.utility.recycler_utils.OverNestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical">
+	
+	<!-- YOUR_RECYCLERVIEW -->l̥
+	
+</com.urvish.utility.recycler_utils.OverNestedScrollView>
+```
+
+###### Java Side
+```java
+YOUR_RECYCLERVIEW.setNestedScrollingEnabled(false);
 ```
