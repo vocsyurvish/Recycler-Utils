@@ -11,7 +11,7 @@ allprojects {
 ```
 - add into dependencies.
 ```groovy
-implementation 'com.github.vocsyurvish:Recycler-Utils:1.0.0'
+implementation 'com.github.vocsyurvish:Recycler-Utils:LATEST_VERSION'
 ```
 
 ### ● SmoothScrollness
